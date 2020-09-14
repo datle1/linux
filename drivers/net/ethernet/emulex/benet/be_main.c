@@ -5234,9 +5234,8 @@ static void be_cleanup(struct be_adapter *adapter)
 	netif_device_detach(netdev);
 	if (netif_running(netdev))
 		be_close(netdev);
-	rtnl_unlock();
-
 	be_clear(adapter);
+	rtnl_unlock();
 }
 
 static int be_resume(struct be_adapter *adapter)
